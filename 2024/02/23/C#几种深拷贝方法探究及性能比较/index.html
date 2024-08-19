@@ -25,10 +25,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img2022.cnblogs.com/blog/2417643/202204/2417643-20220416101521483-1463198586.png">
 <meta property="article:published_time" content="2024-02-22T16:59:10.000Z">
-<meta property="article:modified_time" content="2024-02-22T17:03:36.869Z">
+<meta property="article:modified_time" content="2024-02-22T17:17:27.196Z">
 <meta property="article:author" content="Wanderer">
-<meta property="article:tag" content="C#">
 <meta property="article:tag" content="深拷贝">
+<meta property="article:tag" content="CSharp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://img2022.cnblogs.com/blog/2417643/202204/2417643-20220416101521483-1463198586.png">
   
@@ -282,7 +282,7 @@
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs csharp">[<span class="hljs-meta">Serializable</span>]<br><span class="hljs-keyword">class</span> <span class="hljs-title">UserInfo</span><br>    &#123;<br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Name &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> UserId &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">int</span> Age &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">string</span> Address &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">long</span> UpdateTime &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br><br>        <span class="hljs-keyword">public</span> <span class="hljs-built_in">long</span> CreateTime &#123; <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="1、手写创建对象"><a href="#1、手写创建对象" class="headerlink" title="1、手写创建对象"></a>1、手写创建对象</h1><p>简单对象创建，不考虑有构造函数的情况。</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">NewUserInfo</span> newInfo = new NewUserInfo()<br>&#123;<br>    Name = <span class="hljs-meta">info</span>.Name,<br>    Age = <span class="hljs-meta">info</span>.Age,<br>    UserId = <span class="hljs-meta">info</span>.UserId,<br>    Address = <span class="hljs-meta">info</span>.Address,<br>    UpdateTime = <span class="hljs-meta">info</span>.UpdateTime,<br>    CreateTime = <span class="hljs-meta">info</span>.CreateTime,<br>&#125;<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">NewUserInfo newInfo = <span class="hljs-built_in">new</span> NewUserInfo()<br>&#123;<br>    <span class="hljs-type">Name</span> = <span class="hljs-keyword">info</span>.Name,<br>    Age = <span class="hljs-keyword">info</span>.Age,<br>    UserId = <span class="hljs-keyword">info</span>.UserId,<br>    Address = <span class="hljs-keyword">info</span>.Address,<br>    UpdateTime = <span class="hljs-keyword">info</span>.UpdateTime,<br>    CreateTime = <span class="hljs-keyword">info</span>.CreateTime,<br>&#125;;<br></code></pre></td></tr></table></figure>
 
 <p>100万次执行时间为39.4073ms，位居第一。当然，在这种不考虑构造函数的情况下，手写创建肯定是最快的。但是同时，如果遇到复杂对象，代码量也是最多的。</p>
 <h1 id="2、反射"><a href="#2、反射" class="headerlink" title="2、反射"></a>2、反射</h1><p>这也是在日常代码中最常用的方式之一。</p>
@@ -338,7 +338,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/C/" class="category-chain-item">C#</a>
+  <a href="/categories/CSharp/" class="category-chain-item">CSharp</a>
   
   
 
@@ -353,9 +353,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/C/" class="print-no-link">#C#</a>
-      
         <a href="/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" class="print-no-link">#深拷贝</a>
+      
+        <a href="/tags/CSharp/" class="print-no-link">#CSharp</a>
       
     </div>
   
@@ -368,6 +368,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/02/23/API%E8%AE%B0%E5%BD%95/" title="API记录">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">API记录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
